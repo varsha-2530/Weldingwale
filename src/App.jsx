@@ -53,7 +53,7 @@ const App = () => {
           <Route path="/stainless-steel" element={<Stainless />} />
           <Route path="/aluminium" element={<Aluminium />} />
           <Route path="/sheds" element={<Sheds />} />
-            <Route path="/furniture" element={<Furniture />} />
+          <Route path="/furniture" element={<Furniture />} />
         </Routes>
       </Layout>
     </>

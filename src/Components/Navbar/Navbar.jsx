@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
-  MapPin,
   Phone,
   Twitter,
   Facebook,
@@ -54,33 +53,77 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+          {/* ✅ Contact Info */}
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-sm text-gray-700">
-              <MapPin size={16} className="text-orange-500" />
-              <span>Gurugram</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-gray-700">
+            {/* Email link */}
+            <a
+              href="mailto:rajkumarnimbekar999964394@gmail.com"
+              className="flex items-center gap-2 text-sm text-gray-700 hover:text-orange-500 transition"
+            >
+              <p className="text-xs sm:text-sm">
+                rajkumarnimbekar999964394@gmail.com
+              </p>
+            </a>
+
+            {/* Phone numbers */}
+            <a
+              href="tel:+919999643944"
+              className="flex items-center gap-2 text-sm text-gray-700 hover:text-orange-500 transition"
+            >
               <Phone size={16} className="text-orange-500" />
-              <span>+91 7529976252</span>
-            </div>
+              <p>+91 9999-643944</p>
+            </a>
+            <a
+              href="tel:+919911643944"
+              className="flex items-center gap-2 text-sm text-gray-700 hover:text-orange-500 transition"
+            >
+              <Phone size={16} className="text-orange-500" />
+              <p>+91 9911-643944</p>
+            </a>
           </div>
+
+          {/* ✅ Social Links */}
           <div className="flex items-center gap-4">
-            <Twitter
-              size={18}
-              className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
-            />
-            <Facebook
-              size={18}
-              className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
-            />
-            <Instagram
-              size={18}
-              className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
-            />
-            <Linkedin
-              size={18}
-              className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
-            />
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter
+                size={18}
+                className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
+              />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook
+                size={18}
+                className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
+              />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram
+                size={18}
+                className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
+              />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin
+                size={18}
+                className="text-gray-600 hover:text-orange-500 cursor-pointer transition"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -150,4 +193,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-  
