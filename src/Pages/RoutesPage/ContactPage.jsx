@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import React, { useState } from "react";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    service: 'Welding Services',
-    email: '',
-    address: '',
-    passcode: '',
-    description: ''
+    name: "",
+    phone: "",
+    service: "Welding Services",
+    email: "",
+    address: "",
+    passcode: "",
+    description: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for contacting us! We will get back to you soon.');
+    console.log("Form submitted:", formData);
+    alert("Thank you for contacting us! We will get back to you soon.");
   };
 
   return (
@@ -52,7 +52,8 @@ export default function ContactPage() {
             <div>
               <h3 className=" text-gray-800 mb-2">Location:</h3>
               <p className="text-gray-600 text-sm">
-                Shop No 1, Sheela Mata Road<br />
+                Shop No 1, Sheela Mata Road
+                <br />
                 Gurudwara(Po-), 122001
               </p>
             </div>
@@ -79,7 +80,8 @@ export default function ContactPage() {
             <div>
               <h3 className=" text-gray-800 mb-2">Call:</h3>
               <p className="text-gray-600 text-sm">
-                +91 98765 17537<br />
+                +91 98765 17537
+                <br />
                 +91 7529976532
               </p>
             </div>
@@ -185,14 +187,12 @@ export default function ContactPage() {
 
             {/* Submit Button */}
             <div>
-             <button
-  onClick={handleSubmit}
-  className="w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-md transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide text-sm mx-auto block"
->
-  Submit
-</button>
-
-
+              <button
+                onClick={handleSubmit}
+                className="w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-md transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide text-sm mx-auto block"
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>

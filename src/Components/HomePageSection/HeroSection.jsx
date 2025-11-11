@@ -103,36 +103,11 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Floating Call - stays same on all devices */}
-      <div
-        className={`fixed right-6 top-1/2 -translate-y-1/2 z-50 flex items-center justify-end transition-all duration-300 ${
-          hover ? "w-64" : "w-14"
-        }`}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div
-          className={`bg-orange-600 text-white rounded-l-xl shadow-lg overflow-hidden flex items-center transition-all duration-500 ${
-            hover ? "p-3 w-full h-20" : "p-0 w-14 h-14 justify-center"
-          }`}
-        >
-          <div className={`transition-all ${hover ? "mr-2" : ""}`}>
-            <Phone className={`w-5 h-5 ${hover ? "" : "animate-pulse"}`} />
-          </div>
-          <div
-            className={`transition-all duration-500 ${
-              hover ? "opacity-100 max-w-xs" : "opacity-0 max-w-0"
-            } overflow-hidden`}
-          >
-            <div className="text-xs space-y-0.5 leading-tight">
-              <p className="font-semibold">Call</p>
-              <p className="font-bold text-sm">+91 7529976252</p>
-              <p className="font-semibold">Mail</p>
-              <p>info@weldingwale.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
+     
     </div>
   );
 }
+
+
+
+

@@ -29,7 +29,7 @@ export default function Footer() {
     { name: "SERVICES", to: "/services" },
     { name: "PRODUCTS", to: "/products" },
     { name: "HOME SERVICES", to: "/home-services" },
-    { name: "CONTRACT WORK", to: "/contract-work" },
+    
     { name: "BLOG", to: "/blog" },
     { name: "CONTACT", to: "/contact" },
   ];
