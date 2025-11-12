@@ -12,7 +12,7 @@ import HomeServicePage from "./Pages/RoutesPage/HomeServicePage";
 import BlogPage from "./Pages/RoutesPage/BlogPage/BlogPage";
 import BlogDetail from "./Pages/RoutesPage/BlogPage/BlogDetail";
 import ShutterPage from "./Pages/ShutterPage/ShutterPage";
-import MetalIron from "./Pages/NavbarRoutes/METALIRON";
+import MetalIron from "./Pages/NavbarRoutes/MetalIron";
 import Stainless from "./Pages/NavbarRoutes/Stainless";
 import Aluminium from "./Pages/NavbarRoutes/Aluminium";
 import Sheds from "./Pages/NavbarRoutes/Sheds";
