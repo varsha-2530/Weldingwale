@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FurnitureStoreSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -105,9 +106,12 @@ const FurnitureStoreSection = () => {
                 </div>
               </div>
 
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-10 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg self-start">
-                Buy Now
-              </button>
+             <Link
+  to="/contact"
+  className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-10 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg self-start inline-block"
+>
+  Contact Us
+</Link>
             </div>
           </div>
         </div>

@@ -1,85 +1,140 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const OurServicesSection = () => {
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop",
-      title: "Shutter"
+      id: 1,
+      image:
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop",
+      title: "Fabrication Work",
     },
     {
-      image: "https://i.pinimg.com/736x/54/53/42/5453424ea6d2eaee893564ce68a5aef9.jpg",
-      title: "Metal Gates"
+      id: 2,
+      image:
+        "https://i.pinimg.com/736x/54/53/42/5453424ea6d2eaee893564ce68a5aef9.jpg",
+      title: "Gate & Grill Welding",
     },
     {
-      image: "https://i.pinimg.com/736x/bb/8c/c8/bb8cc80f18a203b415e65e830af0530c.jpg",
-      title: "Stainless Steel Gates"
+      id: 3,
+      image:
+        "https://i.pinimg.com/736x/bb/8c/c8/bb8cc80f18a203b415e65e830af0530c.jpg",
+      title: "Industrial Welding",
     },
     {
-      image: "https://i.pinimg.com/736x/1f/eb/7d/1feb7d5929178206180894a21c722d98.jpg",
-      title: "Railing & Grills"
+      id: 4,
+      image:
+        "https://i.pinimg.com/736x/1f/eb/7d/1feb7d5929178206180894a21c722d98.jpg",
+      title: "Repair & Maintenance",
     },
     {
-      image: "https://i.pinimg.com/1200x/20/4b/42/204b424c85c0d560ced16f59d4e9965d.jpg",
-      title: "Staircase"
+      id: 5,
+      image:
+        "https://i.pinimg.com/1200x/20/4b/42/204b424c85c0d560ced16f59d4e9965d.jpg",
+      title: "Custom Metal Project",
     },
-    {
-      image: "https://i.pinimg.com/736x/d8/01/4a/d8014abf42e3e79dc60299764bd3d4ae.jpg",
-      title: "Metal/Steel Furniture"
-    },  
-    {
-      image: "https://i.pinimg.com/736x/fc/44/09/fc44092539e725e565d4f72c2fc87da8.jpg",
-      title: "Sheds"
-    },
-    {
-      image: "https://i.pinimg.com/1200x/6a/60/46/6a60469efb09870acba060ddad2ef668.jpg",
-      title: "Garden Paragolas"
-    } 
   ];
+
+  const scrollRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const totalDots = 3;
+
+  useEffect(() => {
+    const slider = scrollRef.current;
+    let scrollAmount = 0;
+    let dotIndex = 0;
+
+    const scrollInterval = setInterval(() => {
+      if (!slider) return;
+      const cardWidth = slider.firstChild?.offsetWidth || 300;
+      const visibleCards = Math.floor(slider.clientWidth / (cardWidth + 16));
+      scrollAmount += cardWidth + 16;
+
+      if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+        scrollAmount = 0;
+        dotIndex = 0;
+      } else {
+        dotIndex = Math.min(
+          Math.floor(
+            (scrollAmount / (slider.scrollWidth - slider.clientWidth)) *
+              totalDots
+          ),
+          totalDots - 1
+        );
+      }
+
+      setCurrentIndex(dotIndex);
+      slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    }, 2500);
+
+    return () => clearInterval(scrollInterval);
+  }, [services.length]);
+
+  const handleDotClick = (i) => {
+    const slider = scrollRef.current;
+    const scrollTo =
+      (i / totalDots) * (slider.scrollWidth - slider.clientWidth);
+    slider.scrollTo({ left: scrollTo, behavior: "smooth" });
+    setCurrentIndex(i);
+  };
 
   return (
     <div className="w-full bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
         <div className="text-center mb-12">
-         <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-gray-900  tracking-wide text-center">
-  OUR SERVICES
-</h2>
-
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-gray-900 tracking-wide text-center">
+            OUR <span className="text-orange-500">SERVICES</span>
+          </h2>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white"
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-2"
+          style={{ scrollBehavior: "smooth" }}
+        >
+          {services.map((service) => (
+            <Link
+              key={service.id}
+              to={`/services/${service.id}`} // Navigate to ServiceDetailPage
+              className="flex-shrink-0 w-72 sm:w-80 md:w-72 lg:w-80"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              
-              {/* Title Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white p-4">
-                <h3 className="text-lg   text-gray-900">
-                  {service.title}
-                </h3>   
-              </div>
+              <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white flex flex-col h-full">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
 
-              {/* Hover Effect Overlay */}
-              <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 transition-all duration-300"></div>
-            </div>
+                {/* Title below image */}
+                <div className="p-4 bg-white flex-1 flex items-center justify-center">
+                  <h3 className="text-lg text-gray-900 font-semibold text-center">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-900/10 transition-all duration-300"></div>
+              </div>
+            </Link>
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className="flex justify-center mt-12">
-          <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-12 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            VIEW ALL
-          </button>
+        {/* 3 Dots Indicator */}
+        <div className="flex justify-center mt-8 space-x-3">
+          {Array.from({ length: totalDots }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleDotClick(i)}
+              className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                i === currentIndex
+                  ? "bg-orange-500 w-5"
+                  : "bg-gray-400 hover:bg-orange-500"
+              }`}
+            ></button>
+          ))}
         </div>
       </div>
     </div>

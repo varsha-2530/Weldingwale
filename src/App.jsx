@@ -18,6 +18,8 @@ import Stainless from "./Pages/NavbarRoutes/Stainless";
 import Aluminium from "./Pages/NavbarRoutes/Aluminium";
 import Sheds from "./Pages/NavbarRoutes/Sheds";
 import Furniture from "./Pages/NavbarRoutes/Furniture";
+import ServiceDetailPage from "./Pages/DetailPage/ServiceDetailPages/ServiceDetailPage";
+import SubServiceDetailPage from "./Pages/DetailPage/ServiceDetailPages/SubServiceDetailPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -54,6 +56,9 @@ const App = () => {
           <Route path="/aluminium" element={<Aluminium />} />
           <Route path="/sheds" element={<Sheds />} />
           <Route path="/furniture" element={<Furniture />} />
+           <Route path="/services/:id" element={<ServiceDetailPage />} />
+           <Route path="/services/:id/sub/:subId" element={<SubServiceDetailPage />} />
+
         </Routes>
       </Layout>
     </>
