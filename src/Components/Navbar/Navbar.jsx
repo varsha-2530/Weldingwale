@@ -46,26 +46,24 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-white shadow-md">
-      {/* 🔶 Top Bar */}
+      {/* 🔶 Top Bar (hidden on mobile) */}
       <div
-        className={`bg-white border-b border-gray-200 transition-all duration-300 ${
-          showTopBar ? "h-12 opacity-100" : "h-0 opacity-0 overflow-hidden"
+        className={`hidden md:block bg-white border-b border-gray-200 transition-all duration-300 ${
+          showTopBar ? "h-auto opacity-100" : "h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
           {/* ✅ Contact Info */}
           <div className="flex items-center gap-6">
-            {/* Email link */}
+            {/* Email */}
             <a
               href="mailto:rajkumarnimbekar999964394@gmail.com"
               className="flex items-center gap-2 text-sm text-gray-700 hover:text-orange-500 transition"
             >
-              <p className="text-xs sm:text-sm">
-                rajkumarnimbekar999964394@gmail.com
-              </p>
+              <p>rajkumarnimbekar999964394@gmail.com</p>
             </a>
 
-            {/* Phone numbers */}
+            {/* Phones */}
             <a
               href="tel:+919999643944"
               className="flex items-center gap-2 text-sm text-gray-700 hover:text-orange-500 transition"
@@ -170,7 +168,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* ✅ Mobile Menu */}
+        {/* ✅ Mobile Dropdown */}
         {isOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200">
             <div className="px-4 pt-2 pb-3 space-y-1">
@@ -193,3 +191,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+  
