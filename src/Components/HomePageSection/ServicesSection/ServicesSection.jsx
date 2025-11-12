@@ -1,30 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HeroServicesSection = () => {
-  const shutterServices = [
-    {
-      image:
-        "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=500&h=500&fit=crop",
-      title: "Automatic Shutter",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500&h=500&fit=crop",
-      title: "Shop Shutter",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop",
-      title: "Window Rolling Shutter",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&h=500&fit=crop",
-      title: "Rolling Shutters",
-    },
-  ];
-
+const ServicesSection = () => {
   const metalWeldingServices = [
     {
       image:
@@ -83,7 +60,7 @@ const HeroServicesSection = () => {
       </div>
       <div className="p-4 bg-white border-t-4 border-orange-500">
         <h3 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
-          -{title}
+          - {title}
         </h3>
       </div>
     </div>
@@ -93,32 +70,31 @@ const HeroServicesSection = () => {
     <div className="w-full bg-white">
       {/* Header Section */}
       <div className="bg-gradient-to-b from-orange-50 to-white py-8 px-4 text-center border-b-2 border-orange-200">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl  text-gray-900 mb-3">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-gray-900 mb-3">
           INDIA'S FIRST ONLINE METAL SERVICES PROVIDER
         </h1>
         <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto">
           We provide Door Step services for Metal & Steel Fabrication and
-          Repairs. Now Getting Welder at your Door Step is very easy.
+          Repairs. Now getting a welder at your doorstep is very easy.
         </p>
       </div>
 
       {/* Hero Banner Section */}
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-        {/* Main Hero Banner */}
         <div className="bg-gradient-to-br from-amber-100 via-amber-200 to-orange-200 rounded-2xl shadow-2xl p-6 md:p-12 lg:p-16 mb-8 overflow-hidden relative">
           <div className="absolute top-0 right-0 w-64 h-64 bg-orange-300 rounded-full blur-3xl opacity-30"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-300 rounded-full blur-3xl opacity-30"></div>
 
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex-1 z-10">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl  text-gray-900 mb-4 leading-tight">
+            <div className="flex-1 z-10 text-center md:text-left">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl text-gray-900 mb-4 leading-tight">
                 Trusted
               </h2>
               <p className="text-xl md:text-2xl text-gray-800 mb-2">
                 Complete Welding Services
               </p>
               <p className="text-lg text-gray-700 mb-2">at your</p>
-              <p className="text-2xl md:text-3xl  text-gray-900 mb-8">
+              <p className="text-2xl md:text-3xl text-gray-900 mb-8">
                 *Doorstep*
               </p>
               <Link
@@ -128,6 +104,7 @@ const HeroServicesSection = () => {
                 Book Now
               </Link>
             </div>
+
             <div className="flex-1 flex justify-center z-10">
               <div className="relative">
                 <div className="absolute inset-0 bg-orange-500 rounded-2xl blur-2xl opacity-30"></div>
@@ -147,20 +124,14 @@ const HeroServicesSection = () => {
           <div className="bg-gradient-to-br from-amber-100 via-amber-200 to-orange-200 rounded-2xl shadow-xl hover:shadow-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <div className="flex-shrink-0">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-orange-400 rounded-xl blur-xl opacity-40"></div>
-                  <img
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=300&fit=crop"
-                    alt="Home"
-                    className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow-lg ring-2 ring-white"
-                  />
-                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=300&fit=crop"
+                  alt="Home"
+                  className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow-lg ring-2 ring-white"
+                />
               </div>
               <div className="flex-1 text-center sm:text-right">
-                <h3
-                  className="text-2xl md:text3xl  text-gray-900 mb-2"
-                  style={{ fontFamily: "Georgia, serif" }}
-                >
+                <h3 className="text-2xl md:text-3xl text-gray-900 mb-2 font-serif">
                   Home Building
                 </h3>
                 <p className="text-lg text-gray-800 mb-1">Contracts</p>
@@ -181,20 +152,14 @@ const HeroServicesSection = () => {
           <div className="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 rounded-2xl shadow-xl hover:shadow-2xl p-6 md:p-8 transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <div className="flex-shrink-0">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gray-400 rounded-xl blur-xl opacity-40"></div>
-                  <img
-                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&h=300&fit=crop"
-                    alt="Corporate"
-                    className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow-lg ring-2 ring-white"
-                  />
-                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&h=300&fit=crop"
+                  alt="Corporate"
+                  className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl shadow-lg ring-2 ring-white"
+                />
               </div>
               <div className="flex-1 text-center sm:text-right">
-                <h3
-                  className="text-2xl md:text-3xl text-gray-900 mb-2"
-                  style={{ fontFamily: "Georgia, serif" }}
-                >
+                <h3 className="text-2xl md:text-3xl text-gray-900 mb-2 font-serif">
                   Corporate
                 </h3>
                 <p className="text-lg text-gray-800 mb-1">Contracts</p>
@@ -213,40 +178,18 @@ const HeroServicesSection = () => {
         </div>
       </div>
 
-      {/* Shutter Services Section */}
-      <div className="bg-gradient-to-b from-white to-gray-50 py-12 md:py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl  text-gray-900 mb-4">
-              SHUTTER SERVICES
-            </h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto mb-6"></div>
-            <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Best in Class material | Professional worker | Charges after
-              Inspection | Get you design | Fixed on same day door shutter
-              manufacturing | Old shutter Repairing
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {shutterServices.map((service, index) => (
-              <ServiceCard key={index} {...service} />
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Metal Welding Services Section */}
       <div className="bg-gradient-to-b from-gray-50 to-white py-12 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl  text-gray-900 mb-4">
-              METAL WELDING SERVICES
+            <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-900 mb-4">
+              METAL WELDING 
             </h2>
             <div className="w-24 h-1 bg-orange-500 mx-auto mb-6"></div>
             <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Quality Work | Professional worker | Email you the sample |
-              Charges after design | Get your design | Fixed on same day New
-              Metal Products manufacturing | Old Metal Products Repairing
+              Charges after design | Fixed on same day New Metal Products
+              manufacturing | Old Metal Products Repairing
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -261,14 +204,14 @@ const HeroServicesSection = () => {
       <div className="bg-gradient-to-b from-white to-gray-50 py-12 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl  text-gray-900 mb-4">
-              STEEL WELDING SERVICES
+            <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-900 mb-4">
+              STEEL WELDING 
             </h2>
             <div className="w-24 h-1 bg-orange-500 mx-auto mb-6"></div>
             <p className="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Quality Work | Professional product | Email you the sample |
-              Charges after design | Fixed on same day New steel products
-              manufacturing | Old steel products Repairing
+              Charges after design | Fixed on same day New Steel Products
+              manufacturing | Old Steel Products Repairing
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -282,4 +225,4 @@ const HeroServicesSection = () => {
   );
 };
 
-export default HeroServicesSection;
+export default ServicesSection;
