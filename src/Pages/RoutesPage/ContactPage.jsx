@@ -78,7 +78,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-gray-800 mb-2">Email:</h3>
               <p className="text-gray-600 text-sm break-all">
-                Rahulwasanweb4@gmail.com
+                rajkumarnimbekar999964394@gmail.com
               </p>
             </div>
           </div>
@@ -91,9 +91,9 @@ export default function ContactPage() {
             <div>
               <h3 className="text-gray-800 mb-2">Call:</h3>
               <p className="text-gray-600 text-sm">
-                +91 98765 17537
+                +91 9911643944
                 <br />
-                +91 75299 76532
+                +91 9999643944
               </p>
             </div>
           </div>
