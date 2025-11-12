@@ -289,9 +289,7 @@ export default function ServiceDetailPage() {
             {service.subServices.map((sub, index) => (
               <div
                 key={index}
-                onClick={() =>
-                  navigate(`/services/${service.id}/sub/${index}`)
-                }
+                
                 className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden cursor-pointer"
               >
                 <img

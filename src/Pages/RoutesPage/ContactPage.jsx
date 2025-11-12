@@ -12,6 +12,8 @@ export default function ContactPage() {
     description: "",
   });
 
+  const [mapLoaded, setMapLoaded] = useState(false); // loader state
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,6 +31,14 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Map Section */}
       <div className="w-full h-64 md:h-96 bg-gray-200 relative overflow-hidden">
+        {/* Loader */}
+        {!mapLoaded && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10 transition-opacity duration-500">
+            <div className="w-10 h-10 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mb-2"></div>
+            <p className="text-sm text-gray-600">Loading map...</p>
+          </div>
+        )}
+
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.3!2d77.1304!3d28.7041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDQyJzE0LjgiTiA3N8KwMDcnNDkuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
           width="100%"
@@ -38,6 +48,7 @@ export default function ContactPage() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0"
+          onLoad={() => setMapLoaded(true)} // hide loader when map is ready
         ></iframe>
       </div>
 
@@ -50,11 +61,11 @@ export default function ContactPage() {
               <MapPin className="w-6 h-6 text-orange-500" />
             </div>
             <div>
-              <h3 className=" text-gray-800 mb-2">Location:</h3>
+              <h3 className="text-gray-800 mb-2">Location:</h3>
               <p className="text-gray-600 text-sm">
                 Shop No 1, Sheela Mata Road
                 <br />
-                Gurudwara(Po-), 122001
+                Gurudwara (Po-), 122001
               </p>
             </div>
           </div>
@@ -78,11 +89,11 @@ export default function ContactPage() {
               <Phone className="w-6 h-6 text-orange-500" />
             </div>
             <div>
-              <h3 className=" text-gray-800 mb-2">Call:</h3>
+              <h3 className="text-gray-800 mb-2">Call:</h3>
               <p className="text-gray-600 text-sm">
                 +91 98765 17537
                 <br />
-                +91 7529976532
+                +91 75299 76532
               </p>
             </div>
           </div>
@@ -97,106 +108,91 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name */}
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name*"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
-              </div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name*"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              />
 
               {/* Phone */}
-              <div>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number*"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
-              </div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number*"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              />
 
               {/* Service Dropdown */}
-              <div>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition bg-white"
-                >
-                  <option>Welding Services</option>
-                  <option>Metal Fabrication</option>
-                  <option>Steel Structure</option>
-                  <option>Gate & Railing</option>
-                  <option>Repair & Maintenance</option>
-                </select>
-              </div>
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition bg-white"
+              >
+                <option>Welding Services</option>
+                <option>Metal Fabrication</option>
+                <option>Steel Structure</option>
+                <option>Gate & Railing</option>
+                <option>Repair & Maintenance</option>
+              </select>
 
               {/* Email */}
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address*"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
-              </div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address*"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              />
 
               {/* Address */}
-              <div>
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Address*"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
-              </div>
+              <input
+                type="text"
+                name="address"
+                placeholder="Address*"
+                value={formData.address}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              />
 
               {/* Passcode */}
-              <div>
-                <input
-                  type="text"
-                  name="passcode"
-                  placeholder="Passcode"
-                  value={formData.passcode}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
-              </div>
+              <input
+                type="text"
+                name="passcode"
+                placeholder="Passcode"
+                value={formData.passcode}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              />
             </div>
 
             {/* Description */}
-            <div>
-              <textarea
-                name="description"
-                placeholder="Describe Your Work*"
-                value={formData.description}
-                onChange={handleChange}
-                rows="5"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
-              ></textarea>
-            </div>
+            <textarea
+              name="description"
+              placeholder="Describe Your Work*"
+              value={formData.description}
+              onChange={handleChange}
+              rows="5"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition resize-none"
+            ></textarea>
 
             {/* Submit Button */}
-            <div>
-              <button
-                onClick={handleSubmit}
-                className="w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-md transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wide text-sm mx-auto block"
-              >
-                Submit
-              </button>
-            </div>
+            <button
+              onClick={handleSubmit}
+              className="w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-8 rounded-md transition-transform transform hover:scale-105 active:scale-95 uppercase tracking-wide text-sm mx-auto block shadow-md"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
+  
