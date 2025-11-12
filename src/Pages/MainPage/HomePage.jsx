@@ -79,15 +79,15 @@ const HomePage = () => {
       <section data-aos="fade-up">
         <OurServicesSection />
       </section>
-     
+
       <section data-aos="fade-up">
         <ServicesSection />
       </section>
 
- <section data-aos="fade-up">
+      <section data-aos="fade-up">
         <OurWorkSection />
       </section>
-    
+
       <section data-aos="fade-up">
         <FurnitureStoreSection />
       </section>
